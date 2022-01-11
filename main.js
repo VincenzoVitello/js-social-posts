@@ -112,11 +112,11 @@ for (let index = 0; index < likeBtn.length; index++) {
 
         const likeCounterDiv = document.getElementById('like-counter-'+ index);
         const numero = parseInt(likeCounterDiv.innerHTML);
-        
+        //in questo modo, al click parte un if: se la classe liked è presente, viene rimossa e viene decrementato il numero di like
         if(this.classList.contains('like-button--liked')){
             this.classList.remove('like-button--liked')
             likeCounterDiv.innerHTML = numero-1;
-        }else{
+        }else{ //altrimente, se la classe liked NON è presente, viene aggiunta e viene incrementato il numero di like 
             this.classList.add('like-button--liked');
             likeCounterDiv.innerHTML = numero+1;
         }
