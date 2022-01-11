@@ -96,7 +96,17 @@ function newPost (){
     } //fine del ciclo for
 }//chiusura della funzione newPost
 
-//creo una funzione che mi permetta di mettere like e incrementarne il numero
-function like(){
+//creo variabili per interagire con pulsante di like e numero di likes
+
+let likeBtn = document.querySelectorAll('.like-button');
+let likeCounter = document.querySelectorAll('.likes__counter');
+
+
+//creo un ciclo per la gestione del click sul pulsante like
+for (let index = 0; index < posts.length; index++) {
+    likeBtn.addEventListener('click', function(){
+        this.classList.add('like-button--liked');
+        
+    })
     
 }
