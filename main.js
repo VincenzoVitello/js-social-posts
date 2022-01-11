@@ -105,7 +105,7 @@ let likeCounter = document.querySelectorAll('.likes__counter');
 //creo un ciclo per la gestione del click sul pulsante like
 for (let index = 0; index < posts.length; index++) {
     likeBtn.addEventListener('click', function(){
-        this.classList.add('like-button--liked');
+        likeBtn.classList.add('like-button--liked');
         
     })
     
