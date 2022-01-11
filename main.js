@@ -87,7 +87,7 @@ function newPost (){
                         </a>
                     </div>
                     <div class="likes__counter">
-                        Piace a <b id="like-counter-1" class="js-likes-counter">${posts[i].likes}</b> persone
+                        Piace a <b id="like-counter-${i}" class="js-likes-counter">${posts[i].likes}</b> persone
                     </div>
                 </div> 
             </div>            
@@ -100,13 +100,26 @@ function newPost (){
 
 let likeBtn = document.querySelectorAll('.like-button');
 let likeCounter = document.querySelectorAll('.likes__counter');
+let likeBtn2 = document.querySelector('.like-button');
 
+console.log(likeBtn);
+console.log(likeBtn2)
 
 //creo un ciclo per la gestione del click sul pulsante like
-for (let index = 0; index < posts.length; index++) {
-    likeBtn.addEventListener('click', function(){
-        likeBtn.classList.add('like-button--liked');
+for (let index = 0; index < likeBtn.length; index++) {
+    likeBtn[index].addEventListener('click', function( e ){
+        e.preventDefault() //questa cosa, che deve ancora essere spiegata, mi evita che a ogni click sul pulsante la pagina torni in alto
+
+        const likeCounterDiv = document.getElementById('like-counter-'+ index);
+        const numero = parseInt(likeCounterDiv.innerHTML);
         
+        if(this.classList.contains('like-button--liked')){
+            this.classList.remove('like-button--liked')
+            likeCounterDiv.innerHTML = numero-1;
+        }else{
+            this.classList.add('like-button--liked');
+            likeCounterDiv.innerHTML = numero+1;
+        }
     })
     
 }
