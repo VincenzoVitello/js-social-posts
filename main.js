@@ -1,3 +1,4 @@
+//dato array di oggetti con i dati dei post da inserire
 const posts = [
     {
         "id": 1,
@@ -55,9 +56,9 @@ const posts = [
         "created": "2021-03-05"
     }
 ];
-//creo una funzione che mi permetta di creare dei nuovi post
+//richiamo una funzione che mi permetta di creare dei nuovi post
 newPost(posts);
-
+//creo la suddetta funzione
 function newPost (){
     for(i=0; i < posts.length; i++){
 
@@ -100,10 +101,7 @@ function newPost (){
 
 let likeBtn = document.querySelectorAll('.like-button');
 let likeCounter = document.querySelectorAll('.likes__counter');
-let likeBtn2 = document.querySelector('.like-button');
 
-console.log(likeBtn);
-console.log(likeBtn2)
 
 //creo un ciclo per la gestione del click sul pulsante like
 for (let index = 0; index < likeBtn.length; index++) {
@@ -111,14 +109,14 @@ for (let index = 0; index < likeBtn.length; index++) {
         e.preventDefault() //questa cosa, che deve ancora essere spiegata, mi evita che a ogni click sul pulsante la pagina torni in alto
 
         const likeCounterDiv = document.getElementById('like-counter-'+ index);
-        const numero = parseInt(likeCounterDiv.innerHTML);
+        const number = parseInt(likeCounterDiv.innerHTML);
         //in questo modo, al click parte un if: se la classe liked è presente, viene rimossa e viene decrementato il numero di like
         if(this.classList.contains('like-button--liked')){
             this.classList.remove('like-button--liked')
-            likeCounterDiv.innerHTML = numero-1;
+            likeCounterDiv.innerHTML = number-1;
         }else{ //altrimente, se la classe liked NON è presente, viene aggiunta e viene incrementato il numero di like 
             this.classList.add('like-button--liked');
-            likeCounterDiv.innerHTML = numero+1;
+            likeCounterDiv.innerHTML = number+1;
         }
     })
     
